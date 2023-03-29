@@ -21,7 +21,7 @@
       </header>
       <div class="subheading">
         <h1 class="subheading__slogan">Let's do it together.</h1>
-        <p class="subheading__text">We travel the world in search of stories. Come along for the ride.</p>
+        <p class="subheading__description">We travel the world in search of stories. Come along for the ride.</p>
         <button class="button subheading__button">View Latest Posts</button>
       </div>
     </div>
@@ -43,9 +43,9 @@
             <h3 class="post__heading">{{ .Title }}</h3>
             <h4 class="post__description">{{ .Subtitle }}</h4>
             <div class="post__info">
-              <div class="data__author">
+              <div class="info__author">
                 <img class="author__avatar" src="{{ .AuthorAvatar }}" alt="{{ .AuthorName }}">
-                <span class="author__name author__name_position">{{ .AuthorName }}</span>
+                <span class="author__name">{{ .AuthorName }}</span>
               </div>
               <span class="info__date">{{ .PublishDate }}</span>
             </div>
@@ -65,7 +65,7 @@
             <div class="photo__info">
               <div class="photo__author">
                 <img class="author__avatar" src="{{ .AuthorAvatar }}" alt="{{ .AuthorName }}">
-                <span class="recent-author__name recent-author__name_position">{{ .AuthorName }}</span>
+                <span class="recent-author__name">{{ .AuthorName }}</span>
               </div> 
               <span class="photoinfo__date">{{ .PublishDate }}</span>
             </div>

@@ -67,7 +67,7 @@ func post(w http.ResponseWriter, r *http.Request) {
 	data := postPage{
 	}
 
-	err = ts.Execute(w, data) // Заставляем шаблонизатор вывести шаблон в тело ответа
+	err = ts.Execute(w, data) 
 	if err != nil {
 		http.Error(w, "Internal Server Error", 500)
 		log.Println(err.Error())
