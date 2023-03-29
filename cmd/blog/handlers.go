@@ -25,7 +25,7 @@ func index(w http.ResponseWriter, r *http.Request) {
 	}
 
 	data := indexPage{
-		Title:         "Escape",
+		Title:         "Escape.",
 		FeaturedPosts: featuredPosts(),
 	}
 

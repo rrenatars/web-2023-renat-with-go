@@ -177,7 +177,7 @@ body
     margin-bottom: 6px;
 }
 
-.post__text
+.post__description
 {
     font: 14px/1.79 'Oxygen';
     color: rgba(255, 255, 255, 0.7);
@@ -276,7 +276,7 @@ body
     margin-left: 13px;
 }
 
-.photo__text
+.photo__description
 {
     font: 13px/1.46 'Oxygen';
     color: #7A7A7A;
