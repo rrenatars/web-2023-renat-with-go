@@ -11,6 +11,10 @@ type indexPage struct {
 	MostRecent    []mostRecentData
 }
 
+type postPage struct {
+
+}
+
 type featuredPostData struct {
 	Title    				string
 	Subtitle           		string
@@ -42,6 +46,25 @@ func index(w http.ResponseWriter, r *http.Request) {
 	data := indexPage{
 		FeaturedPosts: featuredPosts(),
 		MostRecent:    mostRecent(),
+	}
+
+	err = ts.Execute(w, data) // Заставляем шаблонизатор вывести шаблон в тело ответа
+	if err != nil {
+		http.Error(w, "Internal Server Error", 500)
+		log.Println(err.Error())
+		return
+	}
+}
+
+func post(w http.ResponseWriter, r *http.Request) {
+	ts, err := template.ParseFiles("pages/post.html") 
+	if err != nil {
+		http.Error(w, "Internal Server Error", 500) 
+		log.Println(err.Error())                    
+		return                                      
+	}
+
+	data := postPage{
 	}
 
 	err = ts.Execute(w, data) // Заставляем шаблонизатор вывести шаблон в тело ответа
