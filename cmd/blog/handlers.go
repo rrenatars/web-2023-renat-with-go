@@ -7,7 +7,6 @@ import (
 )
 
 type indexPage struct {
-	Title         string
 	FeaturedPosts []featuredPostData
 	MostRecent    []mostRecentData
 }
@@ -41,7 +40,6 @@ func index(w http.ResponseWriter, r *http.Request) {
 	}
 
 	data := indexPage{
-		Title:         "Escape.",
 		FeaturedPosts: featuredPosts(),
 		MostRecent:    mostRecent(),
 	}
