@@ -63,8 +63,6 @@ func featuredPosts() []featuredPostData {
 			AuthorAvatar: "../../static/images/mat_vogels.jpg",
 			AuthorName: "Mat Vogels",
 			PublishDate: "September 25, 2015",
-			PostButton: "",
-			ButtonClass: "",
 		},
 		{
 			Title:    "From Top Down",
