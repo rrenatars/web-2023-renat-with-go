@@ -11,10 +11,6 @@ type indexPage struct {
 	MostRecent    []mostRecentData
 }
 
-type postPage struct {
-
-}
-
 type featuredPostData struct {
 	Title    				string
 	Subtitle           		string
@@ -22,8 +18,6 @@ type featuredPostData struct {
 	AuthorAvatar   			string
 	AuthorName 				string
 	PublishDate 			string
-	PostButton 				string
-	ButtonClass				string
 }
 
 type mostRecentData struct {
@@ -36,11 +30,11 @@ type mostRecentData struct {
 }
 
 func index(w http.ResponseWriter, r *http.Request) {
-	ts, err := template.ParseFiles("pages/index.html") // Главная страница блога
+	ts, err := template.ParseFiles("pages/index.html") 
 	if err != nil {
-		http.Error(w, "Internal Server Error", 500) // В случае ошибки парсинга - возвращаем 500
-		log.Println(err.Error())                    // Используем стандартный логгер для вывода ошбики в консоль
-		return                                      // Не забываем завершить выполнение ф-ии
+		http.Error(w, "Internal Server Error", 500) 
+		log.Println(err.Error())                    
+		return                                      
 	}
 
 	data := indexPage{
@@ -48,7 +42,7 @@ func index(w http.ResponseWriter, r *http.Request) {
 		MostRecent:    mostRecent(),
 	}
 
-	err = ts.Execute(w, data) // Заставляем шаблонизатор вывести шаблон в тело ответа
+	err = ts.Execute(w, data) 
 	if err != nil {
 		http.Error(w, "Internal Server Error", 500)
 		log.Println(err.Error())
@@ -64,10 +58,7 @@ func post(w http.ResponseWriter, r *http.Request) {
 		return                                      
 	}
 
-	data := postPage{
-	}
-
-	err = ts.Execute(w, data) 
+	err = ts.Execute(w, nil) 
 	if err != nil {
 		http.Error(w, "Internal Server Error", 500)
 		log.Println(err.Error())
@@ -81,7 +72,7 @@ func featuredPosts() []featuredPostData {
 			Title:    "The Road Ahead",
 			Subtitle: "The road ahead might be paved - it might not be.",
 			BackgroundImageModifier: "featured__post_background-road",
-			AuthorAvatar: "../../static/images/mat_vogels.jpg",
+			AuthorAvatar: "static/images/mat_vogels.jpg",
 			AuthorName: "Mat Vogels",
 			PublishDate: "September 25, 2015",
 		},
@@ -89,11 +80,9 @@ func featuredPosts() []featuredPostData {
 			Title:    "From Top Down",
 			Subtitle: "Once a year, go someplace you’ve never been before.",
 			BackgroundImageModifier: "featured__post_background-fromtop",
-			AuthorAvatar: "../../static/images/william_wong.jpg",
+			AuthorAvatar: "static/images/william_wong.jpg",
 			AuthorName: "William Wong",
 			PublishDate: "September 25, 2015",
-			PostButton: "ADVENTURE",
-			ButtonClass: "button__adventure",
 		},
 	}
 }
@@ -101,51 +90,51 @@ func featuredPosts() []featuredPostData {
 func mostRecent() []mostRecentData {
 	return []mostRecentData{
 		{
-			PhotoImage: "../../static/images/still_standing_tall.jpg",
+			PhotoImage: "static/images/still_standing_tall.jpg",
 			Title: "Still Standing Tall",
 			Subtitle: "Life begins at the end of your comfort zone.",
 			AuthorName: "William Wong",
-			AuthorAvatar: "../../static/images/william_wong.jpg",
+			AuthorAvatar: "static/images/william_wong.jpg",
 			PublishDate: "9/25/2015",
 		},
 		{
-			PhotoImage: "../../static/images/sunny_side_up.jpg",
+			PhotoImage: "static/images/sunny_side_up.jpg",
 			Title: "Sunny Side Up",
 			Subtitle: "No place is ever as bad as they tell you it’s going to be.",
 			AuthorName: "Mat Vogels",
-			AuthorAvatar: "../../static/images/mat_vogels.jpg",
+			AuthorAvatar: "static/images/mat_vogels.jpg",
 			PublishDate: "9/25/2015",
 		},
 		{
-			PhotoImage: "../../static/images/water_falls.jpg",
+			PhotoImage: "static/images/water_falls.jpg",
 			Title: "Water Falls",
 			Subtitle: "We travel not to escape life, but for life not to escape us.",
 			AuthorName: "William Wong",
-			AuthorAvatar: "../../static/images/william_wong.jpg",
+			AuthorAvatar: "static/images/william_wong.jpg",
 			PublishDate: "9/25/2015",
 		},
 		{
-			PhotoImage: "../../static/images/through_the_mist.jpg",
+			PhotoImage: "static/images/through_the_mist.jpg",
 			Title: "Through the Mist",
 			Subtitle: "Travel makes you see what a tiny place you occupy in the world.",
 			AuthorName: "William Wong",
-			AuthorAvatar: "../../static/images/william_wong.jpg",
+			AuthorAvatar: "static/images/william_wong.jpg",
 			PublishDate: "9/25/2015",
 		},
 		{
-			PhotoImage: "../../static/images/still_standing_tall.jpg",
+			PhotoImage: "static/images/still_standing_tall.jpg",
 			Title: "Still Standing Tall",
 			Subtitle: "Life begins at the end of your comfort zone.",
 			AuthorName: "William Wong",
-			AuthorAvatar: "../../static/images/william_wong.jpg",
+			AuthorAvatar: "static/images/william_wong.jpg",
 			PublishDate: "9/25/2015",
 		},
 		{
-			PhotoImage: "../../static/images/awaken_early.jpg",
+			PhotoImage: "static/images/awaken_early.jpg",
 			Title: "Awaken Early",
 			Subtitle: "Not all those who wander are lost.",
 			AuthorName: "Mat Vogels",
-			AuthorAvatar: "../../static/images/mat_vogels.jpg",
+			AuthorAvatar: "static/images/mat_vogels.jpg",
 			PublishDate: "9/25/2015",
 		},
 	}
