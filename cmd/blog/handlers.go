@@ -109,8 +109,8 @@ func mostRecent() []mostRecentData {
 			PhotoImage: "static/images/water_falls.jpg",
 			Title: "Water Falls",
 			Subtitle: "We travel not to escape life, but for life not to escape us.",
-			AuthorName: "William Wong",
-			AuthorAvatar: "static/images/william_wong.jpg",
+			AuthorName: "Mat Vogels",
+			AuthorAvatar: "static/images/mat_vogels.jpg",
 			PublishDate: "9/25/2015",
 		},
 		{
